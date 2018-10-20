@@ -35,7 +35,7 @@ namespace EndlessRun.Ground
 #endif
 
          m_groundList = new Queue<GameObject>();
-         float startPosition = -groundBeforePlayer * groundLength + groundLength/2;
+         float startPosition = -groundBeforePlayer * groundLength + groundLength / 2;
          for (int i = 0; i < groundBeforePlayer + groundAfterPlayer + 1; i++)
          {
             GameObject ground = Instantiate(groundPrefab);
