@@ -18,7 +18,7 @@ namespace EndlessRun.Player
 #if DEBUG //Let's assume that when the release is built, theese checks are passed
          if (inputManager == null || m_lanesDistance <= 0 || movementTime <= 0)
          {
-            Debug.LogError("PlayerManager " + name + ": component not correctly initialized.");
+            Debug.LogError("HorizontalMovement " + name + ": component not correctly initialized.");
             enabled = false;
             return;
          }
