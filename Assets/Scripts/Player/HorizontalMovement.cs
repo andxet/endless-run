@@ -5,24 +5,31 @@ namespace EndlessRun.Player
 {
    public class HorizontalMovement : MonoBehaviour
    {
+      [Header("Movement info")]
       public InputManager inputManager;
       public float movementTime = 0.2f;
-      public float m_lanesDistance = 2;
+
+      [Header("Ground info")]
+      public float lanesDistance = 2;
+      public int lanesNumber = 5;
+      public int startLane = 2;
 
       float m_movementRemainingTime;
       float m_from, m_to;
+      int m_currentLane;
 
       /////////////////////////////////////////////
       void Start()
       {
 #if DEBUG //Let's assume that when the release is built, theese checks are passed
-         if (inputManager == null || m_lanesDistance <= 0 || movementTime <= 0)
+         if (inputManager == null || lanesDistance <= 0 || movementTime <= 0 || lanesNumber <= 0 || startLane < 0 || startLane >= lanesNumber)
          {
             Debug.LogError("HorizontalMovement " + name + ": component not correctly initialized.");
             enabled = false;
             return;
          }
 #endif
+         m_currentLane = startLane;
       }
 
       /////////////////////////////////////////////
@@ -55,7 +62,11 @@ namespace EndlessRun.Player
       /////////////////////////////////////////////
       void Move(int direction)
       {
-         m_to = m_from + m_lanesDistance * direction;
+         int newLane = m_currentLane + direction;
+         if (newLane >= lanesNumber || newLane < 0)
+            return;
+         m_currentLane = newLane;
+         m_to = m_from + lanesDistance * direction;
          m_movementRemainingTime = movementTime;
       }
    }

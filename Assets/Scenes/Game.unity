@@ -1165,7 +1165,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 1732925516}
   movementTime: 0.3
-  m_lanesDistance: 2
+  lanesDistance: 2
+  lanesNumber: 5
+  startLane: 2
 --- !u!1 &1547970437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,7 +1182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1547970438
 RectTransform:
   m_ObjectHideFlags: 0
