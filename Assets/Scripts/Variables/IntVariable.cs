@@ -1,23 +1,22 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace EndlessRun.Variables
 {
-   [CreateAssetMenu(fileName = "var", menuName = "Variables/Float", order = 1)]
-   public class FloatVariable : ScriptableObject
+   [CreateAssetMenu(fileName = "int var", menuName = "Variables/Int", order = 1)]
+   public class IntVariable : ScriptableObject
    {
-      class FloatVariableEvent : UnityEvent<float> { };
+      class FloatVariableEvent : UnityEvent<int> { };
       FloatVariableEvent m_callbacks = new FloatVariableEvent();
 
-      float m_value;
+      int m_value;
 
       /////////////////////////////////////////////
-      public void SetValue(float value)
+      public void SetValue(int value)
       {
-         if(Math.Abs(m_value - value) > 0.00001)
+         if(m_value != value)
          {
             m_value = value;
             m_callbacks.Invoke(value);
@@ -31,7 +30,7 @@ namespace EndlessRun.Variables
       }
 
       /////////////////////////////////////////////
-      public void RegisterForUpdate(UnityAction<float> callback)
+      public void RegisterForUpdate(UnityAction<int> callback)
       {
          m_callbacks.AddListener(callback);
       }

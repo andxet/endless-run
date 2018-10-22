@@ -5,9 +5,10 @@ using UnityEngine.UI;
 namespace EndlessRun.UI
 {
    [RequireComponent(typeof(Text))]
-   public class ScoreManager : MonoBehaviour
+   public class VariablePrinter : MonoBehaviour
    {
-      public FloatVariable meters;
+      public IntVariable variableToPrint;
+      public string prefix;
       Text m_text;
 
 
@@ -15,27 +16,21 @@ namespace EndlessRun.UI
       void Start()
       {
 #if DEBUG //Let's assume that when the release is built, theese checks are passed
-         if (meters == null)
+         if (variableToPrint == null)
          {
-            Debug.LogError("ScoreManager " + name + ": component not correctly initialized.");
+            Debug.LogError("VariablePrinter " + name + ": component not correctly initialized.");
             enabled = false;
             return;
          }
 #endif
-         meters.RegisterForUpdate(UpdateScore);
+         variableToPrint.RegisterForUpdate(UpdateText);
          m_text = GetComponent<Text>();
       }
 
       /////////////////////////////////////////////
-      void UpdateScore(float meters)
+      void UpdateText(int meters)
       {
-         m_text.text = "Score: " + (int)ComputeScore(meters);
-      }
-
-      /////////////////////////////////////////////
-      float ComputeScore(float meters)
-      {
-         return meters / 10;
+         m_text.text = prefix + meters;
       }
    }
 }
