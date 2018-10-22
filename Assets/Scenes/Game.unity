@@ -113,52 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &11255043
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 11255045}
-  - component: {fileID: 11255044}
-  m_Layer: 0
-  m_Name: Ground
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &11255044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 11255043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 678b1bdb1ad52c645897ffdd8ad69bfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundPrefab: {fileID: 110630, guid: 0684fca5755974299ac935176ac70956, type: 2}
-  lanesDistance: 2
-  groundLength: 15
-  groundBeforePlayer: 1
-  groundAfterPlayer: 2
-  objectToFollow: {fileID: 1424390078}
---- !u!4 &11255045
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 11255043}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &206382753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,6 +1077,34 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1295409165}
   m_CullTransparentMesh: 0
+--- !u!1 &1410319458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1410319459}
+  m_Layer: 0
+  m_Name: Obstacles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1410319459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1410319458}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1424390078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 125256, guid: f41512e4a886a4540b815cfda783448c,
@@ -1182,7 +1164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1547970438
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1239,6 +1221,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1732925517}
   - component: {fileID: 1732925516}
+  - component: {fileID: 1732925519}
+  - component: {fileID: 1732925518}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1271,6 +1255,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1732925518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1732925515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598522d37460575478e0d5e7fb6bbf1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToFollow: {fileID: 11400000, guid: 568775c2e8937c14d92c9c3122ce9acc, type: 2}
+  groundManager: {fileID: 1732925519}
+  spawnZDistance: 12
+  spawnDelay: 3
+  spawnAfterPlayer: 5
+  destroyBeforPlayer: 4
+  availableObjectToSpawn:
+  - {fileID: 114252703981538260, guid: 0e629452e469e461a8309110cd314de1, type: 2}
+  - {fileID: 114797537004780926, guid: e360993a312f24d37be848ef2120ec63, type: 2}
+--- !u!114 &1732925519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1732925515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678b1bdb1ad52c645897ffdd8ad69bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lanes: 5
+  groundPrefab: {fileID: 110630, guid: 0684fca5755974299ac935176ac70956, type: 2}
+  lanesDistance: 2
+  groundLength: 15
+  groundParent: {fileID: 0}
+  groundBeforePlayer: 2
+  groundAfterPlayer: 4
+  objectToFollow: {fileID: 11400000, guid: 568775c2e8937c14d92c9c3122ce9acc, type: 2}
 --- !u!1 &1871069173
 GameObject:
   m_ObjectHideFlags: 0

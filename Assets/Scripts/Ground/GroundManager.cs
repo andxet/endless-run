@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using EndlessRun.Variables;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,22 +8,26 @@ namespace EndlessRun.Ground
    public class GroundManager : MonoBehaviour
    {
       //Assumptions:
-      //The center (x = 0) is the third lane. If the number of lanes change, this clast must be changed
-      public const int lanes = 5;
+      //The center (x = 0) is the third lane. If the number of lanes change, this class must be changed
       [Header("Ground prefab config")]
+      public int lanes = 5;
       public GameObject groundPrefab;
       public float lanesDistance = 2.0f, groundLength = 15.0f;
+      //Just to keep things ordered
+      public Transform groundParent;
 
       [Header("Infinite ground info")]
       public int groundBeforePlayer = 1;
-      public int groundAfterPlayer = 2;
+      public int groundAfterPlayer = 3;
 
       [Header("Object to follow")]
-      public GameObject objectToFollow;
+      public FloatVariable objectToFollow;
 
-      Queue<GameObject> m_groundList;
+      Queue<Transform> m_groundList;
+      //Current reference to move the ground
+      float z_reference = 0;
 
-      // Use this for initialization
+      /////////////////////////////////////////////
       void Awake()
       {
 #if DEBUG //Let's assume that when the release is built, theese checks are passed
@@ -34,25 +39,34 @@ namespace EndlessRun.Ground
          }
 #endif
 
-         m_groundList = new Queue<GameObject>();
+         m_groundList = new Queue<Transform>();
          float startPosition = -groundBeforePlayer * groundLength + groundLength / 2;
-         for (int i = 0; i < groundBeforePlayer + groundAfterPlayer + 1; i++)
+         for (int i = 0; i < groundBeforePlayer + groundAfterPlayer; i++)
          {
             GameObject ground = Instantiate(groundPrefab);
-            Vector3 pos = transform.position;
+            Vector3 pos = ground.transform.position;
             pos.z += startPosition + i * groundLength;
             ground.transform.position = pos;
-            ground.transform.parent = transform;
-            m_groundList.Enqueue(ground);
+            if(groundParent != null)
+               ground.transform.parent = groundParent;
+            m_groundList.Enqueue(ground.transform);
          }
       }
 
-      // Update is called once per frame
+      void Start()
+      {
+         z_reference = objectToFollow.GetValue();
+      }
+
+      /////////////////////////////////////////////
       void Update()
       {
-         if (objectToFollow.transform.position.z - transform.position.z > groundLength)
+         if (objectToFollow.GetValue() - z_reference > groundLength)
          {
-            transform.Translate(new Vector3(0, 0, groundLength));
+            Transform toMove = m_groundList.Dequeue();
+            toMove.Translate(new Vector3(0, 0, groundLength * (groundBeforePlayer + groundAfterPlayer)));
+            m_groundList.Enqueue(toMove);
+            z_reference += groundLength;
          }
       }
    }
