@@ -23,6 +23,11 @@ namespace EndlessRun.Util
       /////////////////////////////////////////////
       public ObjectPool(int numElements, PoolElement go)
       {
+         if(go == null)
+         {
+            Debug.LogError("ObjectPool: pool element is null!");
+         }
+
          if (numElements < 1)
          {
             Debug.LogError("Failed to init the Object Pool");

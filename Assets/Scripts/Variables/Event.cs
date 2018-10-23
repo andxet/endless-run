@@ -18,7 +18,7 @@ namespace EndlessRun.Variables
       }
 
       /////////////////////////////////////////////
-      public void RegisterForUpdate(UnityAction<T> callback)
+      public void RegisterForEvent(UnityAction<T> callback)
       {
          m_callbacks.AddListener(callback);
       }
