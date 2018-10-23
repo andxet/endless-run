@@ -61,9 +61,10 @@ GameObject:
   - component: {fileID: 114383888209383132}
   - component: {fileID: 114008439503314974}
   - component: {fileID: 114489202731796078}
+  - component: {fileID: 114805635094624142}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14564,7 +14565,7 @@ GameObject:
   - component: {fileID: 65108964027015694}
   m_Layer: 0
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14634,3 +14635,15 @@ MonoBehaviour:
   lanesDistance: 2
   lanesNumber: 5
   startLane: 2
+--- !u!114 &114805635094624142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 946e1b56a5e22f7479a5fc4efac7d368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repositionEvent: {fileID: 11400000, guid: 02059a7515568cb4fa5e5952dc2110f9, type: 2}

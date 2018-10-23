@@ -19,7 +19,7 @@ namespace EndlessRun.Core
 #if DEBUG //Let's assume that when the release is built, theese checks are passed
          if (score == null)
          {
-            Debug.LogError("CameraManager " + name + ": component not correctly initialized.");
+            Debug.LogError("DifficultyManager " + name + ": component not correctly initialized.");
             enabled = false;
             return;
          }
@@ -27,6 +27,7 @@ namespace EndlessRun.Core
          score.RegisterForUpdate(UpdateVelocity);
       }
 
+      /////////////////////////////////////////////
       private void UpdateVelocity(int score)
       {
          float newVelocity = 1 + score / pointDelta * velocityToAdd;

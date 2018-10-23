@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 114788624670790378}
   - component: {fileID: 114101511090379124}
   - component: {fileID: 54336558435322320}
+  - component: {fileID: 114817689375668410}
   m_Layer: 0
   m_Name: Collectable
   m_TagString: Untagged
@@ -18869,3 +18870,15 @@ MonoBehaviour:
   activeOnCollisionWithTag:
   - Player
   - WorldEnd
+--- !u!114 &114817689375668410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 946e1b56a5e22f7479a5fc4efac7d368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repositionEvent: {fileID: 11400000, guid: 02059a7515568cb4fa5e5952dc2110f9, type: 2}

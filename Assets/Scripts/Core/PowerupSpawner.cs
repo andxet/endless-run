@@ -28,6 +28,7 @@ namespace EndlessRun.Core
          listenEvent.RegisterForEvent(SpawnPowerup);
       }
 
+      /////////////////////////////////////////////
       void SpawnPowerup(Vector3 position)
       {
          PoolElement powerup = m_powerups.Create();

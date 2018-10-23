@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 114970617996213494}
   - component: {fileID: 114546247106220610}
   - component: {fileID: 54010268325285086}
+  - component: {fileID: 114079691154896856}
   m_Layer: 0
   m_Name: DynamicEnemy
   m_TagString: Untagged
@@ -435,6 +436,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114079691154896856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 946e1b56a5e22f7479a5fc4efac7d368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repositionEvent: {fileID: 11400000, guid: 02059a7515568cb4fa5e5952dc2110f9, type: 2}
 --- !u!114 &114546247106220610
 MonoBehaviour:
   m_ObjectHideFlags: 1

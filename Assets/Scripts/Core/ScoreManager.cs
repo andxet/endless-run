@@ -10,7 +10,7 @@ namespace EndlessRun.Core
       public FloatVariable meters;
       public IntVariable score;
       public IntEvent powerupEvent;
-      public IntEvent repositionEvent;
+      public FloatEvent repositionEvent;
       public float multiplier = 0.10f;
 
       int m_score = 0;
@@ -29,6 +29,7 @@ namespace EndlessRun.Core
          score.SetValue(0);
          meters.RegisterForUpdate(ComputeScore);
          powerupEvent.RegisterForEvent(RegisterPowerupPoints);
+         repositionEvent.RegisterForEvent(RepositionEvent);
       }
 
       /////////////////////////////////////////////
@@ -44,10 +45,10 @@ namespace EndlessRun.Core
       }
 
       /////////////////////////////////////////////
-      void RepositionEvent(int meters)
+      void RepositionEvent(float meters)
       {
          //Should be a negative value...
-         m_score -= meters;
+         m_score -= (int)(meters * multiplier);
       }
    }
 }

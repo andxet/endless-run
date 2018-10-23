@@ -1189,6 +1189,7 @@ GameObject:
   - component: {fileID: 1732925520}
   - component: {fileID: 1732925521}
   - component: {fileID: 1732925522}
+  - component: {fileID: 1732925523}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1305,6 +1306,20 @@ MonoBehaviour:
   score: {fileID: 11400000, guid: 37bdfb60ecfaeb8479f40bf2996ab4fd, type: 2}
   velocityToAdd: 0.1
   pointDelta: 100
+--- !u!114 &1732925523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1732925515}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a9f9565fb277584698d240a37ec70c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meters: {fileID: 11400000, guid: 568775c2e8937c14d92c9c3122ce9acc, type: 2}
+  repositionEvent: {fileID: 11400000, guid: 02059a7515568cb4fa5e5952dc2110f9, type: 2}
+  repositionAmount: 50
 --- !u!1 &1871069173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,14 +1589,6 @@ Prefab:
       propertyPath: inputManager
       value: 
       objectReference: {fileID: 1732925516}
-    - target: {fileID: 1396813676102440, guid: f41512e4a886a4540b815cfda783448c, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 125256, guid: f41512e4a886a4540b815cfda783448c, type: 2}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f41512e4a886a4540b815cfda783448c, type: 2}
   m_IsPrefabAsset: 0
