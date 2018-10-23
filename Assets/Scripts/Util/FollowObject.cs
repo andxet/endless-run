@@ -5,6 +5,7 @@ namespace EndlessRun.Util
    public class FollowObject : MonoBehaviour
    {
       public GameObject objectToFollow;
+      public Vector3 potisionMultiplier = Vector3.one;
       public bool useCurrentPositionAsOffset = true;
 
       Vector3 m_offset;
@@ -27,7 +28,7 @@ namespace EndlessRun.Util
       /////////////////////////////////////////////
       void Update()
       {
-         transform.position = objectToFollow.transform.position;
+         transform.position = Vector3.Scale(potisionMultiplier, objectToFollow.transform.position);
          if (useCurrentPositionAsOffset)
             transform.position += m_offset;
       }
