@@ -3,7 +3,7 @@ using EndlessRun.Variables;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EndlessRun.Spawnable
+namespace EndlessRun.Events
 {
    public class DestroyOnCollision : PoolElement
    {

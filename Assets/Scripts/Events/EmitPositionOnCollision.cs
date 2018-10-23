@@ -3,13 +3,12 @@ using EndlessRun.Variables;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EndlessRun.Spawnable
+namespace EndlessRun.Events
 {
-   public class EmitIntOnCollision : MonoBehaviour
+   public class EmitPositionOnCollision : MonoBehaviour
    {
       public List<string> activeOnCollisionWithTag = new List<string>();
-      public int score;
-      public IntEvent collisionEvent;
+      public PositionEvent collisionEvent;
 
       /////////////////////////////////////////////
       private void OnTriggerEnter(Collider other)
@@ -18,7 +17,7 @@ namespace EndlessRun.Spawnable
             foreach (string tag in activeOnCollisionWithTag)
             {
                if (other.gameObject.CompareTag(tag))
-                  collisionEvent.Invoke(score);
+                  collisionEvent.Invoke(transform.position);
             }
       }
    }
