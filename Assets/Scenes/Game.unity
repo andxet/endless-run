@@ -949,6 +949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToFollow: {fileID: 1424390078}
+  potisionMultiplier: {x: 0, y: 0, z: 1}
   useCurrentPositionAsOffset: 1
 --- !u!20 &1220956548
 Camera:
@@ -1187,6 +1188,7 @@ GameObject:
   - component: {fileID: 1732925518}
   - component: {fileID: 1732925520}
   - component: {fileID: 1732925521}
+  - component: {fileID: 1732925522}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1271,6 +1273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meters: {fileID: 11400000, guid: 568775c2e8937c14d92c9c3122ce9acc, type: 2}
   score: {fileID: 11400000, guid: 37bdfb60ecfaeb8479f40bf2996ab4fd, type: 2}
+  powerupEvent: {fileID: 11400000, guid: 4561b784f99ccaf4c91379f4f096581d, type: 2}
+  repositionEvent: {fileID: 11400000, guid: 02059a7515568cb4fa5e5952dc2110f9, type: 2}
   multiplier: 0.1
 --- !u!114 &1732925521
 MonoBehaviour:
@@ -1287,6 +1291,20 @@ MonoBehaviour:
   powerupPrefab: {fileID: 114788624670790378, guid: 5126e3554bdcc47fb97022dcfaa7d38f,
     type: 2}
   poolSize: 20
+--- !u!114 &1732925522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1732925515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7818043181278b44e99a474d493dec67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 11400000, guid: 37bdfb60ecfaeb8479f40bf2996ab4fd, type: 2}
+  velocityToAdd: 0.1
+  pointDelta: 100
 --- !u!1 &1871069173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,6 +1408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToFollow: {fileID: 1424390078}
+  potisionMultiplier: {x: 0, y: 0, z: 1}
   useCurrentPositionAsOffset: 1
 --- !u!65 &1908494416
 BoxCollider:
