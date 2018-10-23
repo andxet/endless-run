@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 
-namespace EndlessRun.Camera
+namespace EndlessRun.Util
 {
-   public class FollowingCamera : MonoBehaviour
+   public class FollowObject : MonoBehaviour
    {
       public GameObject objectToFollow;
+      public bool useCurrentPositionAsOffset = true;
+
+      Vector3 m_offset;
 
       /////////////////////////////////////////////
       void Start()
@@ -17,14 +20,16 @@ namespace EndlessRun.Camera
             return;
          }
 #endif
+
+         m_offset = transform.position - objectToFollow.transform.position;
       }
 
       /////////////////////////////////////////////
       void Update()
       {
-         Vector3 position = transform.position;
-         position.z = objectToFollow.transform.position.z;
-         transform.position = position;
+         transform.position = objectToFollow.transform.position;
+         if (useCurrentPositionAsOffset)
+            transform.position += m_offset;
       }
    }
 }
