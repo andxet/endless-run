@@ -66,7 +66,7 @@ namespace EndlessRun.Core
             if(currentScore > highScore)
             {
                highScore = currentScore;
-               PlayerPrefs.SetFloat(PREFS_STRING, currentScore);
+               PlayerPrefs.SetInt(PREFS_STRING, currentScore);
                highScoreEvent.Invoke();
             }
             highScoreValue.SetValue(highScore);
