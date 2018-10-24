@@ -6,6 +6,7 @@ namespace EndlessRun.Player
    public class PlayerManager : MonoBehaviour
    {
       public FloatVariable meters;
+      public VoidEvent playerDie;
       float m_startPosition;
 
       /////////////////////////////////////////////
@@ -22,16 +23,18 @@ namespace EndlessRun.Player
          m_startPosition = transform.position.z;
          meters.SetValue(0);
       }
-
-      /////////////////////////////////////////////
-      void Start()
-      {
-      }
-
+      
       /////////////////////////////////////////////
       void Update()
       {
          meters.SetValue(transform.position.z - m_startPosition);
+      }
+
+      /////////////////////////////////////////////
+      private void OnTriggerEnter(Collider other)
+      {
+         if (other.gameObject.CompareTag("Enemy"))
+            playerDie.Invoke();
       }
    }
 }

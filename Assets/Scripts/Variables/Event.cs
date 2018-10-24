@@ -8,8 +8,8 @@ namespace EndlessRun.Variables
    [CreateAssetMenu(fileName = "event", menuName = "Variables/Event", order = 1)]
    public class Event<T> : ScriptableObject
    {
-      class FloatVariableEvent : UnityEvent<T> { };
-      FloatVariableEvent m_callbacks = new FloatVariableEvent();
+      class DynamicEvent : UnityEvent<T> { };
+      DynamicEvent m_callbacks = new DynamicEvent();
 
       /////////////////////////////////////////////
       public void Invoke(T value)

@@ -23,8 +23,9 @@ namespace EndlessRun.UI
             return;
          }
 #endif
-         variableToPrint.RegisterForUpdate(UpdateText);
          m_text = GetComponent<Text>();
+         variableToPrint.RegisterForUpdate(UpdateText);
+         UpdateText(variableToPrint.GetValue());
       }
 
       /////////////////////////////////////////////
